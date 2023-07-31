@@ -10,6 +10,10 @@ export default {
         DarkGrayishViolet: "hsl(279, 6%, 55%)",
         VeryDarkViolet: "hsl(278, 68%, 11%)",
       },
+      backgroundImage: {
+        cardFront: "url('/assets/images/bg-card-front.png')",
+        cardBack: "url('/assets/images/bg-card-back.png')",
+      },
     },
   },
   plugins: [],

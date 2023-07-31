@@ -7,14 +7,20 @@
 
 
 body{
-@apply text-white bg-White;
+@apply text-VeryDarkViolet bg-White;
   font-family: 'Space Grotesk';
   font-size: 18px;
 }
 
-.pre {@apply bg-red-400 bg-opacity-30  sm:bg-blue-400 sm:bg-opacity-30 md:bg-green-400  md:bg-opacity-30 lg:bg-cyan-400 lg:bg-opacity-30;}
+.pre {
+  @apply bg-red-400 bg-opacity-30  sm:bg-blue-400 sm:bg-opacity-30 md:bg-green-400  md:bg-opacity-30 lg:bg-cyan-400 lg:bg-opacity-30;
+}
 
 
 
 .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
+
+.customInput{
+  @apply pl-4 rounded-lg border-[1.5px] border-LightGrayishViolet p-2 outline-none placeholder:text-LightGrayishViolet;
+}
