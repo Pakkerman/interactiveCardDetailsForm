@@ -3,6 +3,7 @@ import Head from "next/head"
 import Image from "next/image"
 import React, { useState } from "react"
 import Footer from "~/components/Footer"
+import { CardBack, CardFront } from "../components/cards"
 
 export default function Home() {
   return (
@@ -36,6 +37,9 @@ export default function Home() {
             <div className="scale-75">
               <CardFront />
             </div>
+            <div className="scale-75">
+              <CardBack />
+            </div>
           </section>
           <section className="px-6">
             <CardForm />
@@ -48,24 +52,6 @@ export default function Home() {
   )
 }
 
-function CardFront() {
-  return (
-    <div className="bg-fit h-[240px] w-[447px] overflow-hidden rounded-xl bg-cardFront px-8 py-4">
-      <div className="relative">
-        <div className="absolute left-0 top-0 flex items-center space-x-3">
-          <div className="h-12 w-12 rounded-full border-2 border-White bg-white"></div>
-          <div className="h-6 w-6 rounded-full border-2 border-White"></div>
-        </div>
-        <p className="">0000 0000 0000 0000</p>
-        <div className="">
-          <p className="">Jane Appleseed </p>
-          <p className="">00/00</p>
-        </div>
-      </div>
-    </div>
-  )
-}
-
 function CardForm() {
   const formik = useFormik({
     initialValues: {
@@ -75,13 +61,18 @@ function CardForm() {
       year: "",
       CVC: "",
     },
+    onSubmit: (values) => {
+      console.log(JSON.stringify(values, null, 2))
+    },
   })
 
   return (
-    <form className="">
+    <form className="" onSubmit={formik.handleSubmit}>
       <div className="flex flex-col space-y-2 text-VeryDarkViolet ">
         <label>CARDHOLDER NAME</label>
         <input
+          id="name"
+          autoComplete="off"
           value={formik.values.name}
           onChange={formik.handleChange}
           className="customInput"
@@ -90,6 +81,7 @@ function CardForm() {
         />
         <label>CARD NUMBER</label>
         <input
+          id="number"
           value={formik.values.number}
           onChange={formik.handleChange}
           className="customInput"
@@ -99,6 +91,7 @@ function CardForm() {
         <label>EXP. DATE (MM/YY) CVC</label>
         <div className="flex justify-center space-x-2">
           <input
+            id="month"
             value={formik.values.month}
             onChange={formik.handleChange}
             className="customInput w-[25%]"
@@ -107,6 +100,7 @@ function CardForm() {
           />
 
           <input
+            id="year"
             value={formik.values.year}
             onChange={formik.handleChange}
             className="customInput w-[25%]"
@@ -114,6 +108,7 @@ function CardForm() {
             placeholder="YY"
           />
           <input
+            id="CVC"
             value={formik.values.CVC}
             onChange={formik.handleChange}
             className="customInput w-[50%]"
@@ -121,7 +116,10 @@ function CardForm() {
             placeholder="e.g. 123"
           />
         </div>
-        <button className="rounded-lg bg-VeryDarkViolet p-4 text-LightGrayishViolet">
+        <button
+          type="submit"
+          className="rounded-lg bg-VeryDarkViolet p-4 text-LightGrayishViolet"
+        >
           Confirm
         </button>
       </div>
