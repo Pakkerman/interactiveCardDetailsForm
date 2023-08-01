@@ -11,6 +11,8 @@ export default {
         VeryDarkViolet: "hsl(278, 68%, 11%)",
       },
       backgroundImage: {
+        mobile: "url('/assets/images/bg-main-mobile.png')",
+        desktop: "url('/assets/images/bg-main-desktop.png')",
         cardFront: "url('/assets/images/bg-card-front.png')",
         cardBack: "url('/assets/images/bg-card-back.png')",
       },

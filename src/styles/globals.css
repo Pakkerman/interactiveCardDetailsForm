@@ -22,5 +22,5 @@ body{
     .attribution a { color: hsl(228, 45%, 44%); }
 
 .customInput{
-  @apply pl-4 rounded-lg border-[1.5px] border-LightGrayishViolet p-2 outline-none placeholder:text-LightGrayishViolet;
+  @apply w-full pl-4 rounded-lg border-[1.5px]  p-2 outline-none placeholder:text-LightGrayishViolet;
 }
