@@ -1,6 +1,7 @@
 import type { FormikProps } from "formik"
 import Footer from "./Footer"
 import type { FormFields } from "~/formSchema/schema"
+import { LoadingSpinner } from "./LoadingSpinner"
 
 export function CardForm({ formik }: { formik: FormikProps<FormFields> }) {
   const {
@@ -123,11 +124,11 @@ export function CardForm({ formik }: { formik: FormikProps<FormFields> }) {
         <button
           className={`${
             isSubmitting ? "opacity-25" : ""
-          } w-full rounded-lg bg-VeryDarkViolet p-4 text-LightGrayishViolet`}
+          } w-full rounded-lg bg-VeryDarkViolet p-4 text-center leading-6 text-LightGrayishViolet`}
           type="submit"
           disabled={isSubmitting}
         >
-          Confirm
+          {isSubmitting ? <LoadingSpinner size={24} /> : "Confirm"}
         </button>
         <Footer />
       </div>

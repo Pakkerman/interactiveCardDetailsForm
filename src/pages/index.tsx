@@ -5,8 +5,18 @@ import { CardBack, CardFront } from "../components/cards"
 import { CardForm } from "../components/CardForm"
 import { useFormik } from "formik"
 import { type FormFields, formSchema } from "~/formSchema/schema"
+import { useState } from "react"
+import { SuccessPage } from "../components/SuccessPage"
+
+async function mockAPI() {
+  return new Promise((resolve) => {
+    setTimeout(resolve, 2000)
+  })
+}
 
 export default function Home() {
+  const [submitted, setSubmitted] = useState<boolean>(false)
+
   const formik = useFormik<FormFields>({
     initialValues: {
       holderName: "",
@@ -16,8 +26,11 @@ export default function Home() {
       CVC: "",
     },
     validationSchema: formSchema,
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2))
+    onSubmit: () => {
+      void mockAPI().then(() => {
+        setSubmitted(true)
+        formik.resetForm()
+      })
     },
   })
 
@@ -48,9 +61,12 @@ export default function Home() {
             </div>
           </section>
           <section className="px-6 md:flex-[1_1]">
-            <CardForm formik={formik} />
+            {submitted ? (
+              <SuccessPage setSubmitted={setSubmitted} />
+            ) : (
+              <CardForm formik={formik} />
+            )}
           </section>
-          {/* Confirm Thank you! We've added your card details Continue */}
         </div>
       </main>
     </>
