@@ -1,9 +1,8 @@
-import React from "react"
-import { useFormik } from "formik"
-import { formSchema } from "~/formSchema/schema"
+import type { FormikProps } from "formik"
 import Footer from "./Footer"
+import type { FormFields } from "~/formSchema/schema"
 
-export function CardForm() {
+export function CardForm({ formik }: { formik: FormikProps<FormFields> }) {
   const {
     values,
     errors,
@@ -12,19 +11,7 @@ export function CardForm() {
     handleChange,
     handleBlur,
     handleSubmit,
-  } = useFormik({
-    initialValues: {
-      name: "",
-      number: "",
-      month: "",
-      year: "",
-      CVC: "",
-    },
-    validationSchema: formSchema,
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2))
-    },
-  })
+  } = formik
 
   return (
     <form
@@ -36,39 +23,39 @@ export function CardForm() {
         <div className="h-24 space-y-1">
           <label className="text-sm tracking-wider">CARDHOLDER NAME</label>
           <input
-            id="name"
+            id="holderName"
             type="text"
             className={`customInput ${
-              errors.name && touched.name
+              errors.holderName && touched.holderName
                 ? "border-red-400"
                 : "border-LightGrayishViolet"
             }`}
             placeholder="e.g. Jane Appleseed"
             onChange={handleChange}
             onBlur={handleBlur}
-            value={values.name.toUpperCase()}
+            value={values.holderName.toUpperCase()}
           />
-          {errors.name && touched.name && (
-            <p className="text-xs text-red-400">{errors.name}</p>
+          {errors.holderName && touched.holderName && (
+            <p className="text-xs text-red-400">{errors.holderName}</p>
           )}
         </div>
         <div className="h-24 space-y-1">
           <label className=" text-sm tracking-wider">CARD NUMBER</label>
           <input
-            id="number"
+            id="cardNumber"
             type="text"
             className={`customInput ${
-              errors.number && touched.number
+              errors.cardNumber && touched.cardNumber
                 ? "border-red-400"
                 : "border-LightGrayishViolet"
             }`}
             placeholder="e.g. 1234 5678 9123 0000"
             onChange={handleChange}
             onBlur={handleBlur}
-            value={values.number}
+            value={values.cardNumber}
           />
-          {errors.number && touched.number && (
-            <p className="text-xs text-red-400">{errors.number}</p>
+          {errors.cardNumber && touched.cardNumber && (
+            <p className="text-xs text-red-400">{errors.cardNumber}</p>
           )}
         </div>
         <div className="flex h-24 space-x-2">

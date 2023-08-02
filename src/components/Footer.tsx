@@ -7,7 +7,10 @@ function Footer() {
       <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">
         Frontend Mentor
       </a>{" "}
-      Coded by <a href="#">Pakkerman</a>
+      Coded by{" "}
+      <a href="https://github.com/Pakkerman/interactiveCardDetailsForm">
+        Pakkerman
+      </a>
     </div>
   )
 }

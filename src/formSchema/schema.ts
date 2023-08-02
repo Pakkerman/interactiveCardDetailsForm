@@ -1,12 +1,12 @@
 import * as yup from "yup"
 
 export const formSchema = yup.object().shape({
-  name: yup
+  holderName: yup
     .string()
     .matches(/^[A-z\s-]+$/, "Invalid")
     .max(30)
     .required("Required"),
-  number: yup
+  cardNumber: yup
     .string()
     .matches(/^[0-9]+/, "Invalid")
     .length(16, "Invalid")
@@ -29,3 +29,11 @@ export const formSchema = yup.object().shape({
     .required("Required"),
   CVC: yup.string().length(3, "Invalid").required("Required"),
 })
+
+export type FormFields = {
+  holderName: string
+  cardNumber: string
+  month: string
+  year: string
+  CVC: string
+}
