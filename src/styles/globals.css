@@ -24,3 +24,5 @@ body{
 .customInput{
   @apply w-full pl-4 rounded-lg border-[1.5px]  p-2 outline-none placeholder:text-LightGrayishViolet;
 }
+
+

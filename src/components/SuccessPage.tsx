@@ -3,8 +3,10 @@ import Footer from "~/components/Footer"
 
 export function SuccessPage({
   setSubmitted,
+  resetForm,
 }: {
   setSubmitted: (state: boolean) => void
+  resetForm: any
 }) {
   return (
     <div className=" mx-auto w-[100vw] max-w-[375px] ">
@@ -26,7 +28,10 @@ export function SuccessPage({
         </div>
         <button
           className="w-full rounded-lg bg-VeryDarkViolet p-4 text-LightGrayishViolet"
-          onClick={() => setSubmitted(false)}
+          onClick={() => {
+            setSubmitted(false)
+            resetForm()
+          }}
         >
           Continue
         </button>
