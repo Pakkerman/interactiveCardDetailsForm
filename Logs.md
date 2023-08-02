@@ -8,7 +8,7 @@
   - [x] Displaying User input on the card front and back image
   - [x] Submit and show success page if all input fields are valid
   - [x] Direct user back to form page after submit
-    - [ ] Open new tab to reop
+    - [x] Open new tab to reop
 
 #### Styles Tasks
 - [x] Mobile layout

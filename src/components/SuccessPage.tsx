@@ -6,7 +6,7 @@ export function SuccessPage({
   resetForm,
 }: {
   setSubmitted: (state: boolean) => void
-  resetForm: any
+  resetForm: () => void
 }) {
   return (
     <div className=" mx-auto w-[100vw] max-w-[375px] ">
